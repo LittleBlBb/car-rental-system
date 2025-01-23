@@ -1,0 +1,18 @@
+<%= render 'shared/errors', object: @location %>
+<%= form_with model: @location do |f| %>
+  <div>
+    <%= f.label :city %>
+    <div>
+      <%= f.text_field :city, minlength: 2, placeholder: 'Moscow' %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :address %>
+    <div>
+      <%= f.text_field :address, minlength: 5, placeholder: 'Krasnaya 123' %>
+    </div>
+  </div>
+
+  <%= f.submit "Submit" %>
+<% end %>

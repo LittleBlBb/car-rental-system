@@ -1,0 +1,23 @@
+<h1>Locations list</h1>
+
+<div>
+  <%= link_to 'Create new Location', new_location_path %>
+</div>
+<% @locations.each do |location| %>
+  <article>
+    <div>
+      <h4><%= location.city %></h4>
+
+      <section>
+        <p>
+          <%= location.address %>
+        </p>
+      </section>
+      <div>
+        <%= button_to 'Show', location_path(location), method: :get %>
+        <%= button_to 'Edit', edit_location_path(location), method: :get %>
+        <%= button_to 'Destroy', location_path(location), method: :delete %>
+      </div>
+    </div>
+  </article>
+<% end %>

@@ -1,0 +1,11 @@
+<h1><%= @location.city %></h1>
+
+<p>
+  <%= @location.address %>
+</p>
+
+<div>
+  <%= button_to 'Show', location_path(@location), class: 'btn btn-primary', method: :get %>
+  <%= button_to 'Edit', edit_location_path(@location), class: 'btn btn-secondary', method: :get %>
+  <%= button_to 'Destroy', location_path(@location), class: 'btn btn-danger', method: :delete %>
+</div>
