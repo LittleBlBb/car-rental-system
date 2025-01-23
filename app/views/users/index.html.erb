@@ -1,0 +1,26 @@
+<h1>Users list</h1>
+
+<div>
+  <%= link_to 'Create new user', new_user_path %>
+</div>
+<% @users.each do |user| %>
+  <article>
+    <div>
+      <h4><%= user.name %></h4>
+
+      <section>
+        <p>
+          <%= user.email %>
+        </p>
+        <p>
+          <%= user.phone_number %>
+        </p>
+      </section>
+      <div>
+        <%= button_to 'Show', user_path(user), method: :get %>
+        <%= button_to 'Edit', edit_user_path(user), method: :get %>
+        <%= button_to 'Destroy', user_path(user), method: :delete %>
+      </div>
+    </div>
+  </article>
+<% end %>
