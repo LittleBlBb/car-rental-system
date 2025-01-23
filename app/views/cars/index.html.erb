@@ -1,0 +1,32 @@
+<h1>Cars</h1>
+
+<%= link_to 'Add new Car', new_car_path %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Price Per Day</th>
+    <th>Location</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @cars.each do |car| %>
+    <tr>
+      <td><%= car.brand %></td>
+      <td><%= car.model %></td>
+      <td><%= car.year %></td>
+      <td><%= car.price_per_day %></td>
+      <td><%= car.location.city %></td>
+      <td>
+        <%= button_to 'Show', car_path(car), method: :get %>
+        <%= button_to 'Edit', edit_car_path(car), method: :get %>
+        <%= button_to 'Delete', car_path(car), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

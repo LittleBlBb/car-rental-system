@@ -1,0 +1,21 @@
+<h1>Car Details</h1>
+
+<p>
+  <strong>Make:</strong> <%= @car.brand %>
+</p>
+<p>
+  <strong>Model:</strong> <%= @car.model %>
+</p>
+<p>
+  <strong>Year:</strong> <%= @car.year %>
+</p>
+<p>
+  <strong>Price Per Day:</strong> <%= @car.price_per_day %>
+</p>
+<p>
+  <strong>Location:</strong> <%= @car.location.city %>
+</p>
+
+<%= button_to 'Edit', edit_car_path(@car), method: :get %>
+<%= button_to 'Destroy', car_path(@car), method: :delete %>
+<%= link_to 'Back', cars_path %>

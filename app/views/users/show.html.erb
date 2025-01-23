@@ -8,7 +8,7 @@
 </p>
 
 <div>
-  <%= button_to 'Show', user_path(@user), class: 'btn btn-primary', method: :get %>
-  <%= button_to 'Edit', edit_user_path(@user), class: 'btn btn-secondary', method: :get %>
+  <%= button_to 'Edit', edit_user_path(@user), class: 'btn btn-primary', method: :get %>
   <%= button_to 'Destroy', user_path(@user), class: 'btn btn-danger', method: :delete %>
+  <%= link_to 'Back', users_path %>
 </div>
