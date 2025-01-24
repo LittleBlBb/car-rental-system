@@ -1,0 +1,20 @@
+<h1>Rental Details</h1>
+
+<p>
+  <strong>Car:</strong> <%= @rental.car.brand %>
+</p>
+<p>
+  <strong>User:</strong> <%= @rental.user.name %>
+</p>
+<p>
+  <strong>Start Date:</strong> <%= @rental.start_date %>
+</p>
+<p>
+  <strong>End Date:</strong> <%= @rental.end_date %>
+</p>
+<p>
+  <strong>Total Price:</strong> <%= number_to_currency(@rental.total_price) %>
+</p>
+
+<%= link_to 'Edit', edit_rental_path(@rental) %> |
+<%= link_to 'Back', rentals_path %>

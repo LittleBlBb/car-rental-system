@@ -1,0 +1,42 @@
+<%= render 'shared/errors', object: @rental %>
+
+<%= form_with model: @rental, local: true do |f| %>
+  <div>
+    <%= f.label :car_id, "Car" %>
+    <div>
+      <%= f.collection_select :car_id, @cars, :id, :brand, prompt: "Select a car" %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :user_id, "User" %>
+    <div>
+      <%= f.collection_select :user_id, @users, :id, :name, prompt: "Select a user" %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :start_date, "Start Date" %>
+    <div>
+      <%= f.date_field :start_date %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :end_date, "End Date" %>
+    <div>
+      <%= f.date_field :end_date %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :total_price, "Total Price (calculated)" %>
+    <div>
+      <%= f.number_field :total_price, readonly: true, value: @rental.total_price %>
+    </div>
+  </div>
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+<%= link_to 'Back', rentals_path %>
