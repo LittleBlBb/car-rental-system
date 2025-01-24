@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :rentals, dependent: :destroy
   has_many :cars, through: :rentals
+
+  validates :vip, inclusion: { in: [true, false] }
+
   validates :name,
             presence: true,
             format: { with: /\A[А-Яа-яёЁA-Za-z]+\z/,

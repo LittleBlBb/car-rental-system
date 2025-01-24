@@ -9,9 +9,7 @@
       <h4><%= location.city %></h4>
 
       <section class="card-text">
-        <p class="my-2">
-          <%= location.address %>
-        </p>
+        <p class="my-2">Address: <%= location.address %></p>
       </section>
       <div class="btn-group btn-group me-4">
         <%= button_to 'Show', location_path(location), method: :get, class: 'btn btn-primary'%>
