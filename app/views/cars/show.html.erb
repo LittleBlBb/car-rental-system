@@ -1,21 +1,17 @@
-<h1>Car Details</h1>
-
-<p>
-  <strong>Make:</strong> <%= @car.brand %>
-</p>
-<p>
-  <strong>Model:</strong> <%= @car.model %>
-</p>
-<p>
-  <strong>Year:</strong> <%= @car.year %>
-</p>
-<p>
-  <strong>Price Per Day:</strong> <%= @car.price_per_day %>
-</p>
-<p>
-  <strong>Location:</strong> <%= @car.location.city %>
-</p>
-
-<%= button_to 'Edit', edit_car_path(@car), method: :get %>
-<%= button_to 'Destroy', car_path(@car), method: :delete %>
-<%= link_to 'Back', cars_path %>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h2><%= @car.brand %> - <%= @car.model %></h2>
+    </div>
+    <div class="card-body">
+      <p><strong>Year:</strong> <%= @car.year %></p>
+      <p><strong>Price per day:</strong> $<%= @car.price_per_day %></p>
+      <p><strong>Location:</strong> <%= @car.location.city %></p>
+    </div>
+    <div class="card-footer">
+      <%= button_to 'Edit', edit_car_path(@car), class: 'btn btn-secondary', method: :get %>
+      <%= button_to 'Back to Cars', cars_path, class: 'btn btn-primary', method: :get%>
+      <%= button_to 'Delete', car_path(@car), method: :delete, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>

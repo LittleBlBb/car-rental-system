@@ -1,25 +1,25 @@
-<h1>Users list</h1>
+<h1 class="mb-4">Users list</h1>
 
-<div>
-  <%= link_to 'Create new user', new_user_path %>
+<div class="mb-3">
+  <%= link_to 'Create new user', new_user_path, class: 'btn btn-primary btn-lg' %>
 </div>
 <% @users.each do |user| %>
-  <article>
-    <div>
+  <article class="card mt-2">
+    <div class="card-body">
       <h4><%= user.name %></h4>
 
-      <section>
-        <p>
+      <section class="card-text">
+        <p class="my-2">
           <%= user.email %>
         </p>
-        <p>
+        <p class="my-2">
           <%= user.phone_number %>
         </p>
       </section>
-      <div>
-        <%= button_to 'Show', user_path(user), method: :get %>
-        <%= button_to 'Edit', edit_user_path(user), method: :get %>
-        <%= button_to 'Destroy', user_path(user), method: :delete %>
+      <div class="btn-group">
+        <%= button_to 'Show', user_path(user), method: :get, class: 'btn btn-primary' %>
+        <%= button_to 'Edit', edit_user_path(user), method: :get, class: 'btn btn-secondary' %>
+        <%= button_to 'Destroy', user_path(user), method: :delete, class: 'btn btn-danger' %>
       </div>
     </div>
   </article>

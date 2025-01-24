@@ -1,11 +1,11 @@
-<h1><%= @location.city %></h1>
+<h1 class="mb-4"><%= @location.city %></h1>
 
-<p>
+<p class="lead my-3">
   <%= @location.address %>
 </p>
 
-<div>
-  <%= button_to 'Edit', edit_location_path(@location), class: 'btn btn-secondary', method: :get %>
+<div class="btn-group me-4 btn-group me-4">
+  <%= button_to 'Edit', edit_location_path(@location), class: 'btn btn-primary', method: :get %>
   <%= button_to 'Destroy', location_path(@location), class: 'btn btn-danger', method: :delete %>
-  <%= link_to 'Back', locations_path %>
+  <%= link_to 'Back', locations_path, class: 'btn btn-secondary btn-xs' %>
 </div>

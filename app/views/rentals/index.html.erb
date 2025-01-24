@@ -1,32 +1,23 @@
-<h1>Rentals</h1>
+<h1>Rentals list</h1>
 
-<%= link_to 'New Rental', new_rental_path %>
+<%= link_to 'Create new Rental', new_rental_path, class: 'btn btn-primary mb-3' %>
 
-<table>
-  <thead>
-  <tr>
-    <th>Car</th>
-    <th>User</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-    <th>Total Price</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="row">
   <% @rentals.each do |rental| %>
-    <tr>
-      <td><%= rental.car.brand %></td>
-      <td><%= rental.user.name %></td>
-      <td><%= rental.start_date %></td>
-      <td><%= rental.end_date %></td>
-      <td><%= number_to_currency(rental.total_price) %></td>
-      <td>
-        <%= button_to 'Show', rental_path(rental), method: :get %>
-        <%= button_to 'Edit', edit_rental_path(rental), method: :get %>
-        <%= button_to 'Delete', rental_path(rental), method: :delete %>
-      </td>
-    </tr>
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Rental for <%= rental.user.name %></h5>
+          <p class="card-text">Car: <%= rental.car.brand %> - <%= rental.car.model %></p>
+          <p class="card-text">Dates: <%= rental.start_date %> to <%= rental.end_date %></p>
+          <p class="card-text">Total Price: $<%= rental.total_price %></p>
+          <div class="btn-group me-4">
+            <%= button_to 'Show', rental_path(rental), method: :get, class: 'btn btn-primary btn-sm' %>
+            <%= button_to 'Edit', edit_rental_path(rental), method: :get, class: 'btn btn-secondary btn-sm' %>
+            <%= button_to 'Destroy', rental_path(rental), method: :delete, class: 'btn btn-danger btn-sm' %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>

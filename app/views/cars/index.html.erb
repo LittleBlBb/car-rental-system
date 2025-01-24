@@ -1,32 +1,22 @@
 <h1>Cars</h1>
 
-<%= link_to 'Add new Car', new_car_path %>
+<%= link_to 'Add new Car', new_car_path, class: 'btn btn-primary mb-3'%>
 
-<table>
-  <thead>
-  <tr>
-    <th>Brand</th>
-    <th>Model</th>
-    <th>Year</th>
-    <th>Price Per Day</th>
-    <th>Location</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="row">
   <% @cars.each do |car| %>
-    <tr>
-      <td><%= car.brand %></td>
-      <td><%= car.model %></td>
-      <td><%= car.year %></td>
-      <td><%= car.price_per_day %></td>
-      <td><%= car.location.city %></td>
-      <td>
-        <%= button_to 'Show', car_path(car), method: :get %>
-        <%= button_to 'Edit', edit_car_path(car), method: :get %>
-        <%= button_to 'Delete', car_path(car), method: :delete %>
-      </td>
-    </tr>
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= car.brand %> - <%= car.model %></h5>
+          <p class="card-text">Price per day: $<%= car.price_per_day %></p>
+          <p class="card-text">Location: <%= car.location.city %></p>
+          <div class="btn-group me-4">
+            <%= button_to 'Show', car_path(car), method: :get, class: 'btn btn-primary btn-sm' %>
+            <%= button_to 'Edit', edit_car_path(car), method: :get, class: 'btn btn-secondary btn-sm' %>
+            <%= button_to 'Destroy', cars_path(car), method: :delete, class: 'btn btn-danger btn-sm' %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>

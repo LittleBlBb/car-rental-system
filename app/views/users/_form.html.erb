@@ -1,26 +1,26 @@
 <%= render 'shared/errors', object: @user %>
 <%= form_with model: @user do |f| %>
-  <div>
-    <%= f.label :name %>
-    <div>
-      <%= f.text_field :name, minlength: 2, placeholder: 'Ivan' %>
+  <div class="mb-3 row">
+    <%= f.label :name, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, minlength: 2, class: 'form-control', placeholder: 'Ivan' %>
     </div>
   </div>
 
-  <div>
-    <%= f.label :email %>
-    <div>
-      <%= f.text_field :email, minlength: 5, placeholder: 'example@gmail.com' %>
+  <div class="mb-3 row">
+    <%= f.label :email, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :email, minlength: 5, class: 'form-control', placeholder: 'example@gmail.com' %>
     </div>
   </div>
 
-  <div>
-    <%= f.label :phone_number %>
-    <div>
-      <%= f.text_field :phone_number, minlength: 10, maxlength: 13, placeholder: '+79969969696' %>
+  <div class="mb-3 row">
+    <%= f.label :phone_number, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :phone_number, class: 'form-control', minlength: 10, maxlength: 13, placeholder: '+79969969696' %>
     </div>
   </div>
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit", class: 'btn btn-primary' %>
 <% end %>
 
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path, class: 'btn btn-secondary'%>

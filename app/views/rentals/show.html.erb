@@ -1,20 +1,18 @@
-<h1>Rental Details</h1>
-
-<p>
-  <strong>Car:</strong> <%= @rental.car.brand %>
-</p>
-<p>
-  <strong>User:</strong> <%= @rental.user.name %>
-</p>
-<p>
-  <strong>Start Date:</strong> <%= @rental.start_date %>
-</p>
-<p>
-  <strong>End Date:</strong> <%= @rental.end_date %>
-</p>
-<p>
-  <strong>Total Price:</strong> <%= number_to_currency(@rental.total_price) %>
-</p>
-
-<%= link_to 'Edit', edit_rental_path(@rental) %> |
-<%= link_to 'Back', rentals_path %>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h2>Rental by <%= @rental.user.name %></h2>
+    </div>
+    <div class="card-body">
+      <p><strong>Car:</strong> <%= @rental.car.brand %> - <%= @rental.car.model %></p>
+      <p><strong>Start Date:</strong> <%= @rental.start_date %></p>
+      <p><strong>End Date:</strong> <%= @rental.end_date %></p>
+      <p><strong>Total Price:</strong> $<%= @rental.total_price %></p>
+    </div>
+    <div class="card-footer btn-group me-4">
+      <%= button_to 'Edit', edit_rental_path(@rental), class: 'btn btn-secondary', method: :get %>
+      <%= button_to 'Back to Rentals', rentals_path, class: 'btn btn-primary', method: :get %>
+      <%= button_to 'Delete', rental_path(@rental), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>
